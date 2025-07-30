@@ -1,6 +1,9 @@
+#define F_CPU 16000000
+
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <math.h>
+#include <util/delay.h>
 
 
 
@@ -123,7 +126,7 @@ void init_PWM(){
 	TCCR1A |= (1<<0) | (1<<1);
 	TCCR1B |= 1<<3; //fast PWM, 10 bit
 	TCCR1B |= (1<<1); //psc = 8
-	OCR1B = 100;
+	OCR1B = 0;
 }
 
 void set_compare(uint16_t comp){
@@ -153,11 +156,11 @@ void init_LED_rx(){
 	PORTB &= ~(1<<4);
 }
 
-void init_TIM3(){
+void init_TIM3(){ 
 	DDRB |= (1<<5);
 	PORTB &= ~(1<<5);
-	TCCR3B |= (1<<1) | (1<<0);
-	TIMSK |= 1<<2; //ovf int en
+	TCCR3B |= (1<<1);
+	ETIMSK |= 1<<2; //ovf int en
 }
 
 ISR(TIMER3_OVF_vect){
@@ -173,11 +176,6 @@ ISR(TIMER3_OVF_vect){
 	}
 }
 
-void delay_500us(){
-	for (int i = 0; i < 8000000; i++)
-	{
-	}
-}
 
 
 int main(void)
@@ -208,7 +206,7 @@ int main(void)
 			if((i == len) && (j == 2)){
 				if(check_control_sum(data_buffer, len, sum_buffer, 2)){
 					set_u(data_buffer, len);
-					goal = (U/3300)*1024;
+					goal = (U/4750)*1024;
 					up_U = U + ((U/100)*5);
 					low_U = U - ((U/100)*5);
 					set_compare(goal);
@@ -220,7 +218,7 @@ int main(void)
 				j = 0;
 				U = 0;
 				PORTB ^= (1<<4);
-				delay_500us();
+				_delay_ms(500);
 				PORTB ^= (1<<4);
 			}
 		}

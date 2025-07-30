@@ -11,7 +11,9 @@ main.d main.o: .././main.c \
  d:\atmega\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  d:\atmega\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  d:\atmega\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
- d:\atmega\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
+ d:\atmega\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
+ d:\atmega\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
+ d:\atmega\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h
 
 d:\atmega\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -38,3 +40,7 @@ d:\atmega\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 d:\atmega\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
 d:\atmega\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
+
+d:\atmega\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
+
+d:\atmega\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
